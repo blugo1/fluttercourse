@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           elevation: 0.0,
-          title: Text("Easy List"),
+          title: Text("Super Food List"),
         ),
         body: ProductManager(),
       ),

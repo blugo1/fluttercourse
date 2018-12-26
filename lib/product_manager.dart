@@ -13,7 +13,6 @@ class ProductManager extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     print("[Products Manager] CreateState");
-
     return _ProductManagerState();
   }
 }
@@ -27,6 +26,11 @@ class _ProductManagerState extends State<ProductManager> {
 
     _products.add(widget.startingProduct);
     super.initState();
+  }
+
+  @override
+  void didUpdateWidget(ProductManager oldWidget) {
+    super.didUpdateWidget(oldWidget);
   }
 
   void _addProducts(String product) {
