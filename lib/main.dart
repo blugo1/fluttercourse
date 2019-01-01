@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import './product_manager.dart';
+import './pages/home_page.dart';
+
 
 void main() => runApp(MyApp());
 
@@ -12,13 +13,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primarySwatch: Colors.red,
           accentColor: Colors.redAccent),
-      home: Scaffold(
-        appBar: AppBar(
-          elevation: 0.0,
-          title: Text("Super Food List"),
-        ),
-        body: ProductManager(),
-      ),
+      home: HomePage(),
     );
   }
 }
