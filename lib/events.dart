@@ -3,18 +3,18 @@ import 'package:flutter/material.dart';
 import './pages/event_page.dart';
 
 class Products extends StatelessWidget {
-  final List<Map<String, String>> products;
+  final List<Map<String, String>> events;
   final Function deleteProduct;
 
   //Constructor
-  Products(this.products, {this.deleteProduct});
+  Products(this.events, {this.deleteProduct});
 
   Widget _buildProductItem(BuildContext context, int index) {
     return Card(
       child: Column(
         children: <Widget>[
-          Image.asset(products[index]['image']),
-          Text(products[index]['title']),
+          Image.asset(events[index]['image']),
+          Text(events[index]['title']),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -24,7 +24,7 @@ class Products extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (BuildContext context) => EventPage(
-                            products[index]['title'], products[index]['image']),
+                            events[index]['title'], events[index]['image']),
                       ),
                     ).then((bool value) {
                       if (value) {
@@ -41,12 +41,12 @@ class Products extends StatelessWidget {
 
   Widget _buildProductList() {
     Widget productCard =
-        Center(child: Text("No products found, please add some"));
-
-    if (products.length > 0) {
+        Center(child: Text("No events found, please add some"));
+    
+    if (events.length > 0) {
       productCard = ListView.builder(
         itemBuilder: _buildProductItem,
-        itemCount: products.length,
+        itemCount: events.length,
       );
     }
     return productCard;

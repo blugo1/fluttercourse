@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 
-import '../product_manager.dart';
+import '../event_manager.dart';
 
-class HomePage extends StatelessWidget {
+class EventsPage extends StatelessWidget {
   @override
     Widget build(BuildContext context) {
       return Scaffold(
         appBar: AppBar(
           elevation: 0.0,
-          title: Text("Super Food List"),
+          title: Text("Event List"),
         ),
-        body: ProductManager(),
+        body: EventManager(),
       );
     }
 }
