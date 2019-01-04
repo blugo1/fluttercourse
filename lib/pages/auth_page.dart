@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import './events_page.dart';
+
 class AuthPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -10,7 +12,9 @@ class AuthPage extends StatelessWidget {
       body: Center(
         child: RaisedButton(
           child: Text('LOGIN'),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=> EventsPage()));
+          },
         ),
       ),
     );

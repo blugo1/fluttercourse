@@ -11,7 +11,7 @@ class EventControl extends StatelessWidget {
     return  RaisedButton(
             color: Theme.of(context).primaryColor,
             onPressed: () {
-              addEvent({"title": "Event Title", "image": "assets/food.jpg"});
+              addEvent({"title": "Event Title", "image": "assets/event.jpg"});
             },
             child: Text("Add Event", style: TextStyle(color: Colors.white)),
           );

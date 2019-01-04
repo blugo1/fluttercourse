@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import './pages/auth_page.dart';
-import './pages/events_page.dart';
-
 
 void main() => runApp(MyApp());
 
@@ -14,7 +12,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.light,
           primarySwatch: Colors.red,
           accentColor: Colors.redAccent),
-      home: EventsPage(),
+      home: AuthPage(),
     );
   }
 }

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import './pages/event_page.dart';
 
-class Products extends StatelessWidget {
+class Events extends StatelessWidget {
   final List<Map<String, String>> events;
   final Function deleteProduct;
 
   //Constructor
-  Products(this.events, {this.deleteProduct});
+  Events(this.events, {this.deleteProduct});
 
   Widget _buildProductItem(BuildContext context, int index) {
     return Card(
