@@ -5,32 +5,30 @@ import './pages/event_admin.dart';
 import './pages/events_page.dart';
 import './pages/event_page.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
   @override
-    State<StatefulWidget> createState() {
-      return _MyAppState();
-    }
+  State<StatefulWidget> createState() {
+    return _MyAppState();
+  }
 }
 
 class _MyAppState extends State<MyApp> {
+  List<Map<String, String>> _events = [];
 
-  List <Map<String, String>> _events = [];
-
- void _addEvent(Map<String, String> product) {
+  void _addEvent(Map<String, String> product) {
     setState(() {
       _events.add(product);
     });
   }
 
-  void _deleteEvent(int index){
+  void _deleteEvent(int index) {
     setState(() {
       _events.removeAt(index);
     });
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,7 +38,8 @@ class _MyAppState extends State<MyApp> {
           accentColor: Colors.redAccent),
       //home: AuthPage(),
       routes: {
-        '/': (BuildContext context) => EventsPage(_events, _addEvent, _deleteEvent),
+        '/': (BuildContext context) =>
+            EventsPage(_events, _addEvent, _deleteEvent),
         '/admin': (BuildContext context) => EventsPageAdmin(),
       },
       onGenerateRoute: (RouteSettings settings) {
@@ -58,9 +57,11 @@ class _MyAppState extends State<MyApp> {
         }
         return null;
       },
-      onUnknownRoute: (RouteSettings settings){
+      onUnknownRoute: (RouteSettings settings) {
         //Fallback
-        return MaterialPageRoute(builder: (BuildContext context) => EventsPage(_events, _addEvent, _deleteEvent));
+        return MaterialPageRoute(
+            builder: (BuildContext context) =>
+                EventsPage(_events, _addEvent, _deleteEvent));
       },
     );
   }
