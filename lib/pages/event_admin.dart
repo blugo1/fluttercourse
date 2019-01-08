@@ -18,7 +18,7 @@ class EventsPageAdmin extends StatelessWidget {
             ListTile(
               title: Text('All Events'),
               onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (BuildContext context)=> EventsPage()));
+                Navigator.pushReplacementNamed(context, '/');
               },
             )
           ],

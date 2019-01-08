@@ -1,9 +1,16 @@
 import 'package:flutter/material.dart';
 
-import './event_admin.dart';
+
 import '../event_manager.dart';
 
 class EventsPage extends StatelessWidget {
+
+  final List<Map<String, String>> products;
+  final Function addProduct;
+  final Function deleteProduct;
+
+  EventsPage(this.products, this.addProduct, this.deleteProduct);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,10 +24,7 @@ class EventsPage extends StatelessWidget {
             ListTile(
               title: Text('Manage Events'),
               onTap: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => EventsPageAdmin()));
+                Navigator.pushReplacementNamed(context, '/admin');
               },
             )
           ],
@@ -31,7 +35,7 @@ class EventsPage extends StatelessWidget {
         title: Text("Event List"),
       ),
       body: Center(
-        child: EventManager(),
+        child: EventManager(products, addProduct, deleteProduct),
       ),
     );
   }

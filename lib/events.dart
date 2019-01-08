@@ -20,13 +20,9 @@ class Events extends StatelessWidget {
             children: <Widget>[
               FlatButton(
                 child: Text('Details'),
-                onPressed: () => Navigator.push<bool>(
-                      context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => EventPage(
-                            events[index]['title'], events[index]['image']),
-                      ),
-                    ).then((bool value) {
+                onPressed: () => Navigator.pushNamed<bool>(
+                            context, '/product/' + index.toString())
+                        .then((bool value) {
                       if (value) {
                         deleteProduct(index);
                       }
@@ -42,7 +38,7 @@ class Events extends StatelessWidget {
   Widget _buildProductList() {
     Widget productCard =
         Center(child: Text("No events found, please add some"));
-    
+
     if (events.length > 0) {
       productCard = ListView.builder(
         itemBuilder: _buildProductItem,
