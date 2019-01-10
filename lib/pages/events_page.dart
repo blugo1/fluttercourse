@@ -5,11 +5,9 @@ import '../event_manager.dart';
 
 class EventsPage extends StatelessWidget {
 
-  final List<Map<String, String>> products;
-  final Function addProduct;
-  final Function deleteProduct;
+  final List<Map<String, dynamic>> products;
 
-  EventsPage(this.products, this.addProduct, this.deleteProduct);
+  EventsPage(this.products);
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +33,7 @@ class EventsPage extends StatelessWidget {
         title: Text("Event List"),
       ),
       body: Center(
-        child: EventManager(products, addProduct, deleteProduct),
+        child: EventManager(products),
       ),
     );
   }

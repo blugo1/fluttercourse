@@ -16,7 +16,7 @@ class EventPage extends StatelessWidget {
             content: Text("This action cannot be undone."),
             actions: <Widget>[
               FlatButton(
-                child: Text("Discard"),
+                child: Text("Cancel"),
                 onPressed: () {
                   Navigator.pop(context);
                 },

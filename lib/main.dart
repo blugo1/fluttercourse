@@ -15,9 +15,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  List<Map<String, String>> _events = [];
+  List<Map<String, dynamic>> _events = [];
 
-  void _addEvent(Map<String, String> product) {
+  void _addEvent(Map<String, dynamic> product) {
     setState(() {
       _events.add(product);
     });
@@ -39,8 +39,8 @@ class _MyAppState extends State<MyApp> {
       //home: AuthPage(),
       routes: {
         '/': (BuildContext context) =>
-            EventsPage(_events, _addEvent, _deleteEvent),
-        '/admin': (BuildContext context) => EventsPageAdmin(),
+            EventsPage(_events),
+        '/admin': (BuildContext context) => EventsPageAdmin(_addEvent, _deleteEvent),
       },
       onGenerateRoute: (RouteSettings settings) {
         final List<String> pathElements = settings.name.split('/');
@@ -61,7 +61,7 @@ class _MyAppState extends State<MyApp> {
         //Fallback
         return MaterialPageRoute(
             builder: (BuildContext context) =>
-                EventsPage(_events, _addEvent, _deleteEvent));
+                EventsPage(_events));
       },
     );
   }

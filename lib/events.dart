@@ -3,11 +3,10 @@ import 'package:flutter/material.dart';
 import './pages/event_page.dart';
 
 class Events extends StatelessWidget {
-  final List<Map<String, String>> events;
-  final Function deleteProduct;
+  final List<Map<String, dynamic>> events;
 
   //Constructor
-  Events(this.events, {this.deleteProduct});
+  Events(this.events);
 
   Widget _buildProductItem(BuildContext context, int index) {
     return Card(
@@ -22,11 +21,6 @@ class Events extends StatelessWidget {
                 child: Text('Details'),
                 onPressed: () => Navigator.pushNamed<bool>(
                             context, '/product/' + index.toString())
-                        .then((bool value) {
-                      if (value) {
-                        deleteProduct(index);
-                      }
-                    }),
               )
             ],
           )
