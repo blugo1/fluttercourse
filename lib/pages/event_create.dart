@@ -12,9 +12,10 @@ class EventCreatePage extends StatefulWidget {
 }
 
 class _EventCreatePageState extends State<EventCreatePage> {
-  String titleValue = '';
-  String descriptionValue = '';
-  double priceValue = 0.0;
+  String _titleValue = '';
+  String _descriptionValue = '';
+  double _priceValue = 0.0;
+  bool _acceptTerms = false;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class _EventCreatePageState extends State<EventCreatePage> {
                   labelText: 'Event Title', icon: Icon(Icons.title)),
               onChanged: (String value) {
                 setState(() {
-                  titleValue = value;
+                  _titleValue = value;
                 });
               },
             ),
@@ -37,7 +38,7 @@ class _EventCreatePageState extends State<EventCreatePage> {
               keyboardType: TextInputType.number,
               onChanged: (String value) {
                 setState(() {
-                  priceValue = double.parse(value);
+                  _priceValue = double.parse(value);
                 });
               },
             ),
@@ -48,20 +49,35 @@ class _EventCreatePageState extends State<EventCreatePage> {
               maxLines: 4,
               onChanged: (String value) {
                 setState(() {
-                  descriptionValue = value;
+                  _descriptionValue = value;
                 });
               },
             ),
+            SwitchListTile(
+              value: _acceptTerms,
+              onChanged: (bool value) {
+                setState(() {
+                  _acceptTerms = value;
+                });
+              },
+              title: Text('Accept Terms'),
+            ),
+            SizedBox(
+              height: 10.0,
+            ),
             RaisedButton(
+              color: Theme.of(context).accentColor,
+              textColor: Colors.white,
               child: Text('Submit'),
               onPressed: () {
                 final Map<String, dynamic> product = {
-                  'title': titleValue,
-                  'price': priceValue,
-                  'description': descriptionValue,
+                  'title': _titleValue,
+                  'price': _priceValue,
+                  'description': _descriptionValue,
                   'image': 'assets/event.jpg'
                 };
                 widget.addEvent(product);
+                Navigator.pushReplacementNamed(context, '/');
               },
             )
           ],

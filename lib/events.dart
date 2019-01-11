@@ -13,15 +13,20 @@ class Events extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Image.asset(events[index]['image']),
-          Text(events[index]['title']),
+          Container(
+            margin: EdgeInsets.only(top: 10.0),
+            child: Text(
+              events[index]['title'],
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26.0, fontFamily: 'Oswald'),
+            ),
+          ),
           ButtonBar(
             alignment: MainAxisAlignment.center,
             children: <Widget>[
               FlatButton(
-                child: Text('Details'),
-                onPressed: () => Navigator.pushNamed<bool>(
-                            context, '/product/' + index.toString())
-              )
+                  child: Text('Details'),
+                  onPressed: () => Navigator.pushNamed<bool>(
+                      context, '/product/' + index.toString()))
             ],
           )
         ],

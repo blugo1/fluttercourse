@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import './events.dart';
-
 class EventManager extends StatelessWidget {
 
   final List<Map<String, dynamic>> events;
